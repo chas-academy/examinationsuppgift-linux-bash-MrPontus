@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [[$EUID -ne 0]]; then
     echo $EUID
-    echo "fuck off non root man"
-    exit 1
+    exit "User is not root, must be executed as root"
 fi
 
 for var in $@; do
