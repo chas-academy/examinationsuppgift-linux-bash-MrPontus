@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[$EUID -ne 0]]; then
     echo $EUID
@@ -15,9 +15,9 @@ for var in $@; do
 
     echo "Välkommen $var" > /home/$var/welcome.txt
 
-    chmod u=wrx /home/$var /home/$var/Documents /home/$var/Downloads /home/$var/Work
-    chgrp $var /home/$var /home/$var/Documents /home/$var/Downloads /home/$var/Work
-    chown $var /home/$var /home/$var/Documents /home/$var/Downloads /home/$var/Work
+    chmod 700 /home/$var/*
+    chgrp $var /home/$var/*
+    chown $var /home/$var/*
 done
 
 for var in $@; do
